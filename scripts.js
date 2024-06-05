@@ -85,14 +85,8 @@ function submitBetForm() {
     // Здесь можно добавить логику для отправки данных на сервер
 }
 
-function changeLanguage(language) {
-    const elements = document.querySelectorAll('[data-translate-key]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-translate-key');
-        element.textContent = translations[language][key];
-    });
-}
 
+// Добавляем перевод для окна ставки
 const translations = {
     en: {
         support: 'SUPPORT',
@@ -124,7 +118,12 @@ const translations = {
         newUsername: 'Username',
         newPassword: 'Password',
         email: 'Email',
-        registerButton: 'Register'
+        registerButton: 'Register',
+        betHeading: 'Place Your Bet',
+        team: 'Team',
+        odds: 'Odds',
+        betAmount: 'Bet Amount',
+        placeBetButton: 'Place Bet'
     },
     ru: {
         support: 'ПОДДЕРЖКА',
@@ -156,9 +155,29 @@ const translations = {
         newUsername: 'Имя пользователя',
         newPassword: 'Пароль',
         email: 'Email',
-        registerButton: 'Зарегистрироваться'
+        registerButton: 'Зарегистрироваться',
+        betHeading: 'Сделайте ставку',
+        team: 'Команда',
+        odds: 'Коэффициент',
+        betAmount: 'Сумма ставки',
+        placeBetButton: 'Сделать ставку'
     }
 };
+
+function changeLanguage(language) {
+    const elements = document.querySelectorAll('[data-translate-key]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-translate-key');
+        element.textContent = translations[language][key];
+    });
+
+    // Обновляем текст в окне ставки
+    document.querySelector('#betForm h2').textContent = translations[language].betHeading;
+    document.querySelector('#betForm label[for="betTeam"]').textContent = translations[language].team;
+    document.querySelector('#betForm label[for="betOdds"]').textContent = translations[language].odds;
+    document.querySelector('#betForm label[for="betAmount"]').textContent = translations[language].betAmount;
+    document.querySelector('#betForm button').textContent = translations[language].placeBetButton;
+}
 
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown-options');

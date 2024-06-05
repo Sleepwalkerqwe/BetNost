@@ -42,8 +42,8 @@
                         </ul>
                     </nav>
                 </div>
-                <a href="#" class="btn login" onclick="openLoginForm()" data-translate-key="login">LOG IN</a>
-                <a href="#" class="btn register" onclick="openRegisterForm()" data-translate-key="register">REGISTER</a>
+                <a href="Login.html" class="btn login" data-translate-key="login">LOG IN</a>
+                <a href="Register.html" class="btn register" data-translate-key="register">REGISTER</a>
             </div>
         </div>
     </header>
@@ -214,51 +214,19 @@
         </section>
     </main>
 
-    <!-- Login Form -->
-    <div id="loginForm" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginForm()">&times;</span>
-            <h2 data-translate-key="loginHeading">Login</h2>
-            <form id="loginFormContent">
-                <label for="username" data-translate-key="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password" data-translate-key="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="button" onclick="submitLoginForm()" data-translate-key="loginButton">Log In</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Register Form -->
-    <div id="registerForm" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRegisterForm()">&times;</span>
-            <h2 data-translate-key="registerHeading">Register</h2>
-            <form id="registerFormContent">
-                <label for="newUsername" data-translate-key="newUsername">Username:</label>
-                <input type="text" id="newUsername" name="newUsername" required>
-                <label for="newPassword" data-translate-key="newPassword">Password:</label>
-                <input type="password" id="newPassword" name="newPassword" required>
-                <label for="email" data-translate-key="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="button" onclick="submitRegisterForm()" data-translate-key="registerButton">Register</button>
-            </form>
-        </div>
-    </div>
-
     <!-- Bet Form -->
     <div id="betForm" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeBetForm()">&times;</span>
-            <h2>Сделайте ставку</h2>
+            <h2 data-translate-key="betHeading">Сделайте ставку</h2>
             <form id="betFormContent">
-                <label for="betTeam">Команда:</label>
+                <label for="betTeam" data-translate-key="team">Команда:</label>
                 <input type="text" id="betTeam" name="betTeam" readonly>
-                <label for="betOdds">Коэффициент:</label>
+                <label for="betOdds" data-translate-key="odds">Коэффициент:</label>
                 <input type="text" id="betOdds" name="betOdds" readonly>
-                <label for="betAmount">Сумма ставки:</label>
+                <label for="betAmount" data-translate-key="betAmount">Сумма ставки:</label>
                 <input type="number" id="betAmount" name="betAmount" required>
-                <button type="button" onclick="submitBetForm()">Сделать ставку</button>
+                <button type="button" onclick="submitBetForm()" data-translate-key="placeBetButton">Сделать ставку</button>
             </form>
         </div>
     </div>
