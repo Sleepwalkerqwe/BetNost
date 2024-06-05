@@ -1,13 +1,16 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', function () {
     // Обработчики для открытия и закрытия меню и форм
     document.addEventListener('click', function (event) {
         const isClickInsideMenu = document.querySelector('.dropdown-menu').contains(event.target);
         const isClickInsideButton = document.querySelector('.btn.menu').contains(event.target);
+        const isClickInsideGameFilter = document.querySelector('.custom-select').contains(event.target);
 
         if (!isClickInsideMenu && !isClickInsideButton) {
             document.querySelector('.dropdown-menu').classList.remove('show');
+        }
+
+        if (!isClickInsideGameFilter) {
+            closeDropdown();
         }
     });
 
@@ -17,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             closeLoginForm();
             closeRegisterForm();
             closeBetForm();
+            closeDropdown();
         }
     });
 
@@ -31,6 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
         button.addEventListener('click', function () {
             openBetForm(this);
         });
+    });
+
+    // Обработчик для изменения языка
+    const languageSelector = document.querySelector('.language select');
+    languageSelector.addEventListener('change', function () {
+        changeLanguage(this.value);
     });
 });
 
@@ -150,111 +160,6 @@ const translations = {
     }
 };
 
-// Добавьте этот код в самое начало файла
-document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-        const dropdown = document.querySelector('.dropdown-options');
-        if (dropdown) {
-            dropdown.style.display = 'none';
-        }
-
-        const loginForm = document.getElementById("loginForm");
-        if (loginForm) {
-            loginForm.style.display = 'none';
-        }
-
-        const registerForm = document.getElementById("registerForm");
-        if (registerForm) {
-            registerForm.style.display = 'none';
-        }
-
-        const menu = document.getElementById("dropdownMenu");
-        if (menu) {
-            menu.classList.remove('show');
-        }
-    }
-});
-
-
-console.log("Script loaded successfully");
-
-function openLoginForm() {
-    console.log("Opening login form");
-    document.getElementById("loginForm").style.display = "block";
-}
-
-function closeLoginForm() {
-    console.log("Closing login form");
-    document.getElementById("loginForm").style.display = "none";
-}
-
-function openRegisterForm() {
-    console.log("Opening register form");
-    document.getElementById("registerForm").style.display = "block";
-}
-
-function closeRegisterForm() {
-    console.log("Closing register form");
-    document.getElementById("registerForm").style.display = "none";
-}
-
-function submitLoginForm() {
-    console.log("Submitting login form");
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    console.log(`Username: ${username}, Password: ${password}`);
-
-    // Отправка данных на сервер
-    fetch('/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.success) {
-                alert('Login successful');
-                closeLoginForm();
-            } else {
-                alert('Login failed');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-}
-
-function submitRegisterForm() {
-    console.log("Submitting register form");
-    const username = document.getElementById('newUsername').value;
-    const password = document.getElementById('newPassword').value;
-    const email = document.getElementById('email').value;
-
-    console.log(`Username: ${username}, Password: ${password}, Email: ${email}`);
-
-    // Отправка данных на сервер
-    fetch('/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password, email })
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            if (data.success) {
-                alert('Registration successful');
-                closeRegisterForm();
-            } else {
-                alert('Registration failed');
-            }
-        })
-        .catch(error => console.error('Error:', error));
-}
-
 function toggleDropdown() {
     const dropdown = document.querySelector('.dropdown-options');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
@@ -275,11 +180,9 @@ function filterGames(value) {
     });
 }
 
-// Функция для переключения отображения меню:
-
-function toggleMenu() {
-    const dropdownMenu = document.getElementById("dropdownMenu");
-    dropdownMenu.classList.toggle("show");
+function closeDropdown() {
+    const dropdown = document.querySelector('.dropdown-options');
+    dropdown.style.display = 'none';
 }
 
 window.onclick = function (event) {
@@ -288,5 +191,9 @@ window.onclick = function (event) {
         if (dropdownMenu.classList.contains("show")) {
             dropdownMenu.classList.remove("show");
         }
+    }
+
+    if (!event.target.matches('.selected-option') && !event.target.closest('.dropdown-options')) {
+        closeDropdown();
     }
 }
