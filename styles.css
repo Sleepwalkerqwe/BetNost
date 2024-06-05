@@ -1,0 +1,476 @@
+/* Основные стили */
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Стили для заголовка и навигации */
+header {
+    background-color: #000;
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.extras {
+    display: flex;
+    align-items: center;
+}
+
+.extras .icon {
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.language select {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    margin-right: 10px;
+    border-radius: 5px;
+    appearance: none;
+    transition: background-color 0.3s ease;
+}
+
+.language select:hover {
+    background-color: #444;
+}
+
+.language select:focus {
+    outline: none;
+}
+
+.icon_support,
+.icon.market {
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    padding: 0 20px;
+}
+
+/* Стили для кнопок */
+.btn {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+.btn.menu {
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+.btn.menu:hover {
+    background-color: #555;
+}
+
+.btn.login {
+    background-color: #555;
+}
+
+.btn.register {
+    background-color: #28a745;
+}
+
+.btn:hover {
+    background-color: #222;
+}
+
+.btn.login:hover {
+    background-color: #444;
+}
+
+.btn.register:hover {
+    background-color: #218838;
+}
+
+/* Основной контент */
+main {
+    margin-top: 20px;
+}
+
+/* Стили для выпадающего меню */
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.dropdown-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    margin: 0;
+    padding: 10px;
+}
+
+.dropdown-menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #444;
+}
+
+/* Ставки */
+.bets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bets-heading {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.matches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.match {
+    background-color: #333;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    /* Добавлено для относительного позиционирования .vs */
+}
+
+/* Команды */
+.team-container {
+    display: flex;
+    align-items: center;
+}
+
+.team img {
+    height: 20px;
+    margin-right: 10px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+}
+
+/* Стили для .vs */
+.vs {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    /* Изменено на абсолютное позиционирование */
+    left: 50%;
+    /* Позиционирование по центру */
+    top: 50%;
+    /* Позиционирование по центру */
+    transform: translate(-50%, -50%);
+    /* Центровка по центру */
+    margin: 0;
+    /* Удаление внешнего отступа */
+}
+
+.odds {
+    display: flex;
+    justify-content: space-around;
+    width: 80px;
+}
+
+.bet-btn {
+    background-color: #28a745;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.bet-btn:hover {
+    background-color: #218838;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+    transition: all 0.5s ease;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #000;
+    background-color: #007bff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content label {
+    margin: 10px 0 5px;
+    color: #000;
+}
+
+.modal-content input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    background-color: #218838;
+}
+
+/* Фильтр игр */
+.filter-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+}
+
+.selected-option {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 5px;
+    width: 200px;
+    max-height: 200px;
+    /* Ограничение высоты */
+    overflow-y: auto;
+    /* Прокрутка при необходимости */
+    z-index: 1;
+}
+
+.dropdown-options.show {
+    display: block;
+}
+
+.option {
+    padding: 10px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.option img {
+    margin-right: 10px;
+    height: 20px;
+    width: 20px;
+}
+
+.option:hover {
+    background-color: #444;
+}
+
+/* Стили для кнопки обновления страницы */
+.btn.refresh {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    font-size: 18px;
+}
+
+.btn.refresh:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для раздела поддержки */
+#support {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.support-heading {
+    background-color: #444;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#supportForm {
+    display: flex;
+    flex-direction: column;
+}
+
+#supportForm label {
+    margin: 10px 0 5px;
+}
+
+#supportForm input,
+#supportForm textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#supportForm button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#supportForm button:hover {
+    background-color: #218838;
+}
